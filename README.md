@@ -13,7 +13,7 @@ a wrapper command for [winget](microsoft/winget-cli) with built-in fuzzy-finder 
 </div>
 
 <div align="center">
-  <img src="https://repository-images.githubusercontent.com/594500449/fadbdca9-f764-437c-ae91-bb417cfb6d07" href="https://github.com/sheepla/fzwinget/edit/master/README.md" alt="screenshot width="70%">
+  <img src="https://repository-images.githubusercontent.com/594500449/fadbdca9-f764-437c-ae91-bb417cfb6d07" href="https://github.com/sheepla/fzwinget/edit/master/README.md" alt="screenshot width="60%">
 </div>
 
 
