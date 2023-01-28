@@ -8,8 +8,12 @@
 
 *winget ❤ fuzzy-finder*
 
-**fzwinget** is a wrapper command for [winget](microsoft/winget-cli) with built-in fuzzy-finder interactive interface.
+**fzwinget** is a wrapper command for [Windows Package Manager CLI](microsoft/winget-cli) a.k.a. **winget** with built-in fuzzy-finder interactive interface.
 
+</div>
+
+<div align="center">
+    <img src="https://repository-images.githubusercontent.com/594500449/fadbdca9-f764-437c-ae91-bb417cfb6d07" alt="screenshot" width=70%>
 </div>
 
 
@@ -50,6 +54,12 @@ GLOBAL OPTIONS:
 ```
 go install github.com/sheepla/fzwinget@latest
 ```
+
+## Thanks
+
+- [winget](https://github.com/microsoft/winget-cli) - Official Windows Package Manager CLI repository
+- [winget.run](https://winget.run/) - The website finding winget packages made easy
+- [winget.run API](https://github.com/winget-run/api) - The REST API behind winget.run, allowing users to search, discover. This tool utilise for this API.
 
 ## License
 
