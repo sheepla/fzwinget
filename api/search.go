@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/url"
 	"path"
+	"strconv"
 	"strings"
 	"time"
 
@@ -20,8 +21,8 @@ const (
 type SearchParam struct {
 	// parameters
 	Query       string
-	Name        string
 	ID          string
+	Name        string
 	Publisher   string
 	Description string
 	Tags        string
@@ -32,9 +33,18 @@ type SearchParam struct {
 	// Order        int
 }
 
-func NewSeachParam(query string) *SearchParam {
+func NewSearchParam(
+	query, id, name, publisher, description, tags string,
+	take int,
+) *SearchParam {
 	return &SearchParam{
-		Query: query,
+		Query:       query,
+		ID:          id,
+		Name:        name,
+		Publisher:   publisher,
+		Description: description,
+		Tags:        tags,
+		Take:        take,
 	}
 }
 
@@ -71,8 +81,12 @@ func (param *SearchParam) toURL() *url.URL {
 		q.Add("tags", param.Tags)
 	}
 
+	if param.Take != 0 {
+		q.Add("take", strconv.Itoa(param.Take))
+	}
+
 	q.Add("ensureContains", "true")
-	q.Add("partialMatch", "true")
+	q.Add("partialMatch", "false")
 
 	u.RawQuery = q.Encode()
 
