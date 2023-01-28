@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/url"
+	"path"
 	"strings"
 	"time"
 
@@ -41,6 +42,7 @@ func (param *SearchParam) toURL() *url.URL {
 	u := &url.URL{
 		Scheme: "https",
 		Host:   host,
+		Path:   path.Join("v2", "packages"),
 	}
 
 	q := u.Query()
@@ -97,6 +99,22 @@ type Package struct {
 	CreatedAt   time.Time
 }
 
+func Search(param *SearchParam) (*SearchResult, error) {
+	body, err := fetch(param.toURL())
+	if err != nil {
+		return nil, err
+	}
+
+	defer body.Close()
+
+	result, err := parseSearchResult(body)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func parseSearchResult(contentReader io.Reader) (*SearchResult, error) {
 	buf := new(bytes.Buffer)
 	if _, err := io.Copy(buf, contentReader); err != nil {
@@ -112,29 +130,24 @@ func parseSearchResult(contentReader io.Reader) (*SearchResult, error) {
 	var result SearchResult
 	var pkg Package
 
-	gjson.GetBytes(content, "Packages").ForEach(func(_, packages gjson.Result) bool {
-		pkg.Banner = packages.Get("Banner").String()
-		pkg.Featured = packages.Get("Featured").Bool()
-		pkg.ID = packages.Get("Id").String()
-		pkg.IconURL = packages.Get("IconUrl").String()
-		pkg.Logo = packages.Get("Logo").String()
-		pkg.UpdatedAt = packages.Get("UpdatedAt").Time()
-		pkg.CreatedAt = packages.Get("CreatedAt").Time()
+	gjson.GetBytes(content, "Packages").ForEach(func(_, value gjson.Result) bool {
+		pkg.Banner = value.Get("Banner").String()
+		pkg.Featured = value.Get("Featured").Bool()
+		pkg.ID = value.Get("Id").String()
+		pkg.IconURL = value.Get("IconUrl").String()
+		pkg.Logo = value.Get("Logo").String()
+		pkg.UpdatedAt = value.Get("UpdatedAt").Time()
+		pkg.CreatedAt = value.Get("CreatedAt").Time()
 
-		pkg.Versions = gjsonToStringSlice(packages.Get("Versions"))
+		pkg.Versions = gjsonToStringSlice(value.Get("Versions"))
 
-		packages.Get("Latest").ForEach(func(_, latest gjson.Result) bool {
-			pkg.Name = latest.Get("Name").String()
-			pkg.Publisher = latest.Get("Publisher").String()
-			pkg.Description = latest.Get("Description").String()
-			pkg.Homepage = latest.Get("Homepage").String()
-			pkg.License = latest.Get("License").String()
-			pkg.LicenseURL = latest.Get("LicenseUrl").String()
-			pkg.Tags = gjsonToStringSlice(latest.Get("Tags"))
-
-			// continue iteration
-			return true
-		})
+		pkg.Name = value.Get("Latest.Name").String()
+		pkg.Publisher = value.Get("Latest.Publisher").String()
+		pkg.Description = value.Get("Latest.Description").String()
+		pkg.Homepage = value.Get("Latest.Homepage").String()
+		pkg.License = value.Get("Latest.License").String()
+		pkg.LicenseURL = value.Get("Latest.LicenseUrl").String()
+		pkg.Tags = gjsonToStringSlice(value.Get("Latest.Tags"))
 
 		result = append(result, pkg)
 

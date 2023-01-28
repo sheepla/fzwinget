@@ -1,7 +1,6 @@
 package api
 
 import (
-	"context"
 	"fmt"
 	"io"
 	"net/http"
@@ -13,8 +12,8 @@ var (
 	timeout = 10 * time.Second
 )
 
-func fetch(ctx context.Context, source *url.URL) (io.ReadCloser, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, source.String(), nil)
+func fetch(source *url.URL) (io.ReadCloser, error) {
+	req, err := http.NewRequest(http.MethodGet, source.String(), nil)
 	if err != nil {
 		return nil, err
 	}
