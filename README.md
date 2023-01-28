@@ -1,10 +1,14 @@
+<div align="center">
+
 # fzwinget
+
+</div>
 
 <div align="center">
 
-winget ❤ fuzzyfinder
+*winget ❤ fuzzy-finder*
 
-*fzwinget* is a wrapper command for [winget](microsoft/winget-cli) with built-in fuzzy-finder interactive interface.
+**fzwinget** is a wrapper command for [winget](microsoft/winget-cli) with built-in fuzzy-finder interactive interface.
 
 </div>
 
@@ -40,3 +44,18 @@ GLOBAL OPTIONS:
    --help, -h     show help (default: false)
    --version, -v  print the version (default: false)
 ```
+
+## Installation
+
+```
+go install github.com/sheepla/fzwinget@latest
+```
+
+## License
+
+MIT
+
+## Author
+
+> [sheepla](https://github.com/sheepla/)
+
