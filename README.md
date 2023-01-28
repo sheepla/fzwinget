@@ -20,7 +20,7 @@ a wrapper command for [winget](microsoft/winget-cli) with built-in fuzzy-finder 
 ## Features
 
 - [x] built-in fuzzy-finder UI for fast selection by filtering by package ID and name
-- [x] Instantly install selected packages: `fzwinget install QUERY...`
+- [x] install the selected packages instantly: `fzwinget install QUERY...`
 - [x] able to open the selected package link in the default web browser: `fzwinget open QUERY...`
 
 ## Usage
