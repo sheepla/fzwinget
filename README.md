@@ -1,15 +1,18 @@
+<div align="left">
+
+[![golangci-lint](https://github.com/sheepla/fzwinget/actions/workflows/ci.yml/badge.svg)](https://github.com/sheepla/fzwinget/actions/workflows/ci.yml)
+[![Release](https://github.com/sheepla/fzwinget/actions/workflows/release.yml/badge.svg)](https://github.com/sheepla/fzwinget/actions/workflows/release.yml)
+
+</div>
+
+
 <div align="center">
 
 # fzwinget
 
-**fzwinget** is a wrapper command for [Windows Package Manager CLI](microsoft/winget-cli) a.k.a. **winget** with built-in fuzzy-finder interactive interface
-
-</div>
-
-<div align="center">
-
 *winget ❤ fuzzy-finder*
 
+**fzwinget** is a wrapper command for [Windows Package Manager CLI](https://github.com/microsoft/winget-cli) a.k.a. **winget** with built-in fuzzy-finder interactive interface
 
 </div>
 

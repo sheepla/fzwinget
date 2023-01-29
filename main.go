@@ -27,10 +27,6 @@ const (
 	searchParamCategoryName = "search parameters"
 )
 
-const (
-	wingetDefaultFileName = "winget.exe"
-)
-
 type exitCode int
 
 const (
