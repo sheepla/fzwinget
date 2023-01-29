@@ -1,4 +1,4 @@
-<div align="left">
+<div align="right">
 
 [![golangci-lint](https://github.com/sheepla/fzwinget/actions/workflows/ci.yml/badge.svg)](https://github.com/sheepla/fzwinget/actions/workflows/ci.yml)
 [![Release](https://github.com/sheepla/fzwinget/actions/workflows/release.yml/badge.svg)](https://github.com/sheepla/fzwinget/actions/workflows/release.yml)
