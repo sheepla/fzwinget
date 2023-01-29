@@ -3,7 +3,6 @@ module github.com/sheepla/fzwinget
 go 1.19
 
 require (
-	github.com/dustin/go-humanize v1.0.1
 	github.com/ktr0731/go-fuzzyfinder v0.7.0
 	github.com/sheepla/tdloader v0.0.0-20230121182946-32d78171203a
 	github.com/tidwall/gjson v1.14.4
