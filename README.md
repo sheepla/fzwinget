@@ -2,26 +2,27 @@
 
 # fzwinget
 
+**fzwinget** is a wrapper command for [Windows Package Manager CLI](microsoft/winget-cli) a.k.a. **winget** with built-in fuzzy-finder interactive interface
+
 </div>
 
 <div align="center">
 
 *winget ❤ fuzzy-finder*
 
-**fzwinget** is a wrapper command for [Windows Package Manager CLI](microsoft/winget-cli) a.k.a. **winget** with built-in fuzzy-finder interactive interface.
 
 </div>
 
 <div align="center">
-    <img src="https://repository-images.githubusercontent.com/594500449/fadbdca9-f764-437c-ae91-bb417cfb6d07" alt="screenshot" width=70%>
+  <img src="https://repository-images.githubusercontent.com/594500449/fadbdca9-f764-437c-ae91-bb417cfb6d07" href="https://github.com/sheepla/fzwinget/edit/master/README.md" alt="screenshot width="60%">
 </div>
 
 
 ## Features
 
 - [x] built-in fuzzy-finder UI for fast selection by filtering by package ID and name
-- [x] Instantly install selected packages: `fzwinget install QUERY...`
-- [x] able to open the selected package link in the default web browser: `fzwinget open QUERY`
+- [x] install the selected packages instantly: `fzwinget install QUERY...`
+- [x] able to open the selected package link in the default web browser: `fzwinget open QUERY...`
 
 ## Usage
 
