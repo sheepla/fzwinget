@@ -6,6 +6,9 @@ VERSION := $(shell git describe --tags --abbrev=0)
 # commit hash of HEAD e.g. 3a913f
 REVISION := $(shell git rev-parse --short HEAD)
 
+export GOOS := windows
+export GOARCH := amd64
+
 LDFLAGS := -w \
 		   -s \
 		   -X "main.appVersion=$(VERSION)" \
