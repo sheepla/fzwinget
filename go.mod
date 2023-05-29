@@ -6,7 +6,7 @@ require (
 	github.com/ktr0731/go-fuzzyfinder v0.7.0
 	github.com/sheepla/tdloader v0.0.0-20230121182946-32d78171203a
 	github.com/tidwall/gjson v1.14.4
-	github.com/urfave/cli/v3 v3.0.0-alpha2
+	github.com/urfave/cli/v3 v3.0.0-alpha3
 )
 
 require (
